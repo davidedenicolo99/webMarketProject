@@ -1,0 +1,347 @@
+body, header, h1, h2, h5, ul{
+    margin: 0;
+    padding: 0;
+}
+
+#gradient{
+    
+    
+    background: -webkit-gradient(linear, center top, center bottom, from(#A770EF), to(#FDB99B));
+}
+
+body > header, body > footer{
+    background-color: rgb(54,54,54);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+body > header > h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+nav{
+    margin: 0 5%;
+}
+
+nav ul{
+    list-style: none;
+}
+
+nav ul li{
+    display: inline-block;
+    width: 45%;
+    margin: 10px 0 0;
+    text-align: center;
+    background-color:rgb(54,54,54);
+}
+
+nav ul li:nth-child(odd){
+    margin-right: 10%;
+}
+
+nav ul li a{
+    display: inline-block;
+    width:100%;
+    height: 100%;
+    padding: 5px 0;
+    color: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+nav ul li:hover a, nav ul li a.active{
+    color:rgb(219, 69,83);
+}
+
+main{
+    margin: 60px 5% 0;
+}
+article{
+    box-shadow:3px 3px rgb(54,54,54);
+}
+article, main > section{
+    background-color: #CCB8D6;
+    border: 1px solid #cacaca;
+    
+    margin-bottom: 20px;
+    min-height: 580px;
+    border-radius: 20px;
+    padding: 20px 5%;
+}
+
+article > p{
+    padding: 0 5%;
+    text-align: center;
+}
+
+article > header > div{
+    height: 200px;
+    text-align: center;
+}
+
+article > header > div > img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+article > header > h2, article > header > p{
+    padding: 0 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+article > header > p{
+    font-size: 12px;    
+}
+
+article > section{
+    padding: 0 5%;
+    font: 12px Verdana, Geneva, Tahoma, sans-serif;
+}
+article > section > span {
+    border-radius: 10px;
+    font: 16px Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(60, 73, 64);
+}
+article > section > span > span {
+    border-radius: 10px;
+    font: 20px Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(74, 46, 165);
+}
+
+article > footer{
+    padding: 20px 5% 5%;
+    text-align: right;
+}
+
+article > footer > a, form ul li input[type="submit"], form ul li a{
+    padding: 5px 10px;
+    background-color: rgb(221, 221, 221);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    font-size: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+article > footer > a:hover{
+    color:rgb(219, 69,83);
+}
+
+
+form{
+    padding: 0px 5%;
+}
+
+form h2, main > section > h2{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0 0 20px;
+}
+
+form ul{
+    list-style: none;
+    width: 80%;
+    margin: 0 10%;
+}
+
+form ul li{
+    margin-bottom: 20px;
+}
+
+form ul li:last-child{
+    text-align: right;
+}
+
+form ul li label{
+    display: inline-block;
+    width: 50%;
+}
+
+form ul li input:not([type="submit"]){
+    width: 50%;
+    box-sizing: border-box;
+}
+
+form ul li input[type="checkbox"]{
+    margin: 0;
+}
+
+form ul li input[type="submit"]:hover{
+    cursor: pointer;
+    color:rgb(219, 69,83);
+}
+
+form ul li textarea{
+    width: 100%;
+    height: 150px;
+}
+
+form ul li img{
+    width: 50px;
+}
+form input[type="number"]{
+    border: 1px solid;
+    width: 50px;
+}
+
+main > section{
+    padding: 20px 5%;
+}
+main > h2{
+    margin: 10px;
+}
+table{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table td, table th{
+    border: 1px solid #000;
+    padding: 5px 0;
+}
+
+table th{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+table td{
+    text-align: center;
+}
+
+table td img{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+aside{
+    margin: 0 8% 20px;
+    background-color:rgb(230, 188, 227);
+    border: 1px solid #cacaca;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 4px 4px #000;
+}
+
+aside > section{
+    padding: 20px 5%;
+}
+
+aside > section > h2{
+    text-align: center;
+    font: bold 20px 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0 0 15px;
+}
+
+aside > section > ul{
+    list-style: none;
+    border-radius: 40px;
+}
+
+aside > section > ul > li{
+    margin-bottom: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+aside > section > ul > li > img{
+    width: 50px;
+    float: left;
+    margin-right: 5px;
+}
+
+aside > section > ul > li > a{
+    font: bold 12px 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+aside > section > ul > li > a:visited{
+    color: #000;
+}
+
+aside > section > ul > li > a:hover{
+    color:rgb(219, 69,83);
+}
+
+body > footer > p{
+    font-family: 'Courier New', Courier, monospace;
+}
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: rgb(189, 216, 228); 
+    border: 0px solid rgba(0,0,0,.125); 
+}
+
+
+img{
+    max-width: 100%;
+    height: auto;
+    background: lightblue;
+    background: radial-gradient(white 30%, lightblue 70%);
+}
+#cart_count{
+    text-align: center;
+    padding: 0 0.9rem 0.1rem 0.9rem;
+    border-radius: 3rem;
+}
+
+.shopping-cart{
+    padding: 3% 0;
+}
+
+.cart-items + .cart-items{
+    padding: 2% 0;
+}
+
+.price-details h6{
+    padding: 3% 2%;
+}
+nav > div > div  span:first-child {
+    margin-right: 10px;
+}
+
+@media screen and (min-width:768px){
+    nav{
+        margin: 0 10%;
+    }
+    nav ul li{
+        width: 20% !important;
+    }
+
+    nav ul li:first-child{
+        margin-left: 9%;
+    }
+
+    nav ul li:not(:last-child){
+        margin-right: 3%;
+    }
+
+    main, aside{
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    main{
+        width: 90%;
+    }
+
+    aside{
+        width: 25%;
+        margin: 20px 10% 0 7%;
+
+    }
+
+    form ul{
+        width: 50%;
+        margin: 0 25%;
+    }
+
+    table{
+        width: 80%;
+        margin: 0 10%;    
+    }
+}
