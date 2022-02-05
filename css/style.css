@@ -3,6 +3,7 @@ body, header, h1, h2, h5, ul{
     padding: 0;
 }
 
+
 #gradient{
     
     
@@ -21,7 +22,7 @@ body > header > h1{
 }
 
 nav{
-    margin: 0 5%;
+    margin: 0 5% 100px 5%;
 }
 
 nav ul{
@@ -35,10 +36,14 @@ nav ul li{
     text-align: center;
     background-color:rgb(54,54,54);
 }
+nav ul li{
+    border-radius: 25px;
+}
 
 nav ul li:nth-child(odd){
     margin-right: 10%;
 }
+
 
 nav ul li a{
     display: inline-block;
@@ -58,7 +63,7 @@ main{
     margin: 60px 5% 0;
 }
 article{
-    box-shadow:3px 3px rgb(54,54,54);
+    box-shadow: 2px 2px 5px rgb(54,54,54);
 }
 article, main > section{
     background-color: #CCB8D6;
@@ -78,11 +83,13 @@ article > p{
 article > header > div{
     height: 200px;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 article > header > div > img{
     max-height: 100%;
     max-width: 100%;
+    border-radius: 20px;
 }
 
 article > header > h2, article > header > p{
@@ -91,12 +98,12 @@ article > header > h2, article > header > p{
 }
 
 article > header > p{
-    font-size: 12px;    
+    font-size: 15px;    
 }
 
 article > section{
     padding: 0 5%;
-    font: 12px Verdana, Geneva, Tahoma, sans-serif;
+    font: 17px Verdana, Geneva, Tahoma, sans-serif;
 }
 article > section > span {
     border-radius: 10px;
@@ -110,11 +117,11 @@ article > section > span > span {
 }
 
 article > footer{
-    padding: 20px 5% 5%;
-    text-align: right;
+    padding: 20px 5% 5%;   
 }
 
-article > footer > a, form ul li input[type="submit"], form ul li a{
+
+form ul li input[type="submit"], form ul li a{
     padding: 5px 10px;
     background-color: rgb(221, 221, 221);
     border: none;
@@ -123,6 +130,10 @@ article > footer > a, form ul li input[type="submit"], form ul li a{
     color: #000;
     font-size: 12px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+form div{
+    text-align: right;
+    
 }
 
 article > footer > a:hover{
@@ -133,6 +144,7 @@ article > footer > a:hover{
 form{
     padding: 0px 5%;
 }
+
 
 form h2, main > section > h2{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -221,7 +233,7 @@ aside{
     border: 1px solid #cacaca;
     box-sizing: border-box;
     border-radius: 10px;
-    box-shadow: 4px 4px #000;
+    box-shadow: 2px 2px 5px #000;
 }
 
 aside > section{
@@ -304,15 +316,12 @@ nav > div > div  span:first-child {
     margin-right: 10px;
 }
 
-footer{
-    height: 150px;
-}
 @media screen and (min-width:768px){
     nav{
         margin: 0 10%;
     }
     nav ul li{
-        width: 20% !important;
+        width: 20% ;
     }
 
     nav ul li:first-child{

@@ -1,4 +1,5 @@
 
+<!-- Qui mostro il form per inserire i dati ed effettuare il pagamento. -->
 <div class="container">
     <div class="row">
         

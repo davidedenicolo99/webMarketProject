@@ -1,24 +1,29 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
-$templateParams["titolo"] = "E-commerce - prodotti Categoria";
-$templateParams["nome"] = "home.php";
-$templateParams["categorie"] = $dbh->getCategories();
+/**
+ * Questo file mi permette di mostrare tutti e soli gli articoli con una determinata
+ * categoria.
+ * L'associazione post-categoria è nel db.
+ */
 
-//prodotti Categoria Template
+$parameters["title"] = "E-commerce - prodotti Categoria";
+$parameters["nome"] = "home.php";
+$parameters["categorie"] = $dbh->getCategories();
+
+
 $idcategoria = -1;
 if(isset($_GET["id"])){
     $idcategoria = $_GET["id"];
 }
 $nomecategoria = $dbh->getCategoryById($idcategoria);
 if(count($nomecategoria)>0){
-    $templateParams["titolo_pagina"] = "Categoria: ".$nomecategoria[0]["nomecategoria"];
-    $templateParams["prodotti"] = $dbh->getPostByCategory($idcategoria);
+    $parameters["titolo_pagina"] = "Categoria: ".$nomecategoria[0]["nomecategoria"];
+    $parameters["prodotti"] = $dbh->getPostByCategory($idcategoria);
 }
 else{
-    $templateParams["titolo_pagina"] = "Categoria non trovata"; 
-    $templateParams["prodotti"] = array();   
+    $parameters["titolo_pagina"] = "Categoria non trovata"; 
+    $parameters["prodotti"] = array();   
 }
 
 require 'template/base.php';

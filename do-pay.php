@@ -2,6 +2,11 @@
 
 require_once 'bootstrap.php';
 
+/**
+ * Qui viene gestito il pagamento una volta cliccato su Make payment.
+ * Se la quantita in stock è minore della quantita allora lo blocco, altrimenti no.
+ * Svuoto il carrello una volta effettuato il pagamento.
+ */
 
 foreach ($_SESSION['cart'] as $key => $value){
     if(isset($value["product_id"])){ 
@@ -15,25 +20,25 @@ foreach ($_SESSION['cart'] as $key => $value){
             } else{
                 $username = "";
             }
-            
-            $dbh->creaNotifica($value["product_id"], $value["quantity"],$_GET["total"] ,"Comprato", $username);
+            $price = $dbh->getPriceById($value["product_id"]);
+            $dbh->creaNotifica($value["product_id"], $value["quantity"],$price["product_price"]*$value["quantity"] ,"Comprato", $username);
 
             unset($_SESSION['cart'][$key]);
-            $templateParams["titolo"] = "E-commerce - Home";
-            $templateParams["nome"] = "home.php";
+            $parameters["title"] = "E-commerce - Home";
+            $parameters["nome"] = "home.php";
         } else{
-            $templateParams["titolo"] = "E-commerce - Cart";
-            $templateParams["nome"] = "carrello.php";
+            $parameters["title"] = "E-commerce - Cart";
+            $parameters["nome"] = "carrello.php";
         }
     }
 }
 
 
    
-    $templateParams["categorie"] = $dbh->getCategories();
+    $parameters["categorie"] = $dbh->getCategories();
 
     //Home Template
-    $templateParams["prodotti"] = $dbh->getPosts(5);
+    $parameters["prodotti"] = $dbh->getPosts(5);
 
     require 'template/base.php';
 

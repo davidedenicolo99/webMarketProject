@@ -1,17 +1,21 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
-$templateParams["titolo"] = "E-commerce - prodotto";
-$templateParams["nome"] = "singolo-prodotto.php";
-$templateParams["categorie"] = $dbh->getCategories();
+/**
+ * Qui gestisco la mostra di un singolo prodotto nella home tramite una richiesta get.
+ * La richiesta prende un id e con quell'id interrogo il database che mi ritorna il post
+ * con quell'id.
+ */
+$parameters["title"] = "E-commerce - prodotto";
+$parameters["nome"] = "singolo-prodotto.php";
+$parameters["categorie"] = $dbh->getCategories();
 
-//Home Template
+
 $product_id = -1;
 if(isset($_GET["id"])){
     $product_id = $_GET["id"];
 }
-$templateParams["prodotto"] = $dbh->getPostById($product_id);
+$parameters["prodotto"] = $dbh->getPostById($product_id);
 
 require 'template/base.php';
 ?>

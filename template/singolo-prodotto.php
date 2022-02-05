@@ -1,10 +1,11 @@
-        <?php if(count($templateParams["prodotto"])==0): ?>
+        <!-- Pagina che mostra un solo prodotto nella homepage -->
+        <?php if(count($parameters["prodotto"])==0): ?>
         <article>
             <p>prodotto non presente</p>
         </article>
         <?php 
             else:
-                $prodotto = $templateParams["prodotto"][0];
+                $prodotto = $parameters["prodotto"][0];
         ?>
         <article>
             <header>

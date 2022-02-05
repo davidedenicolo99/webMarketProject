@@ -2,18 +2,32 @@
 <?php 
     require_once 'bootstrap.php';
     
-    
-    if(isset($_SESSION["cart"]) && $_GET["total"] != 0){
-            $templateParams["titolo"] = "E-commerce - Pay";
-            $templateParams["nome"] = "pay-home.php";
+    $flag = 1;
+
+    /**
+     * Qui gestisco il CLICK nel pulsante BUY.
+     * Se NON ho elementi nel carrello NON compro e mostro il carrello.
+     * Altrimenti mi renderizza alla pagina di pagamento.
+     */
+
+    foreach ($_SESSION['cart'] as $key => $value){
+        if(intval($_SESSION["cart"][$key]["quantity"]) == 0){
+            $flag = 0;
+        }
+    }
+
+
+    if(isset($_SESSION["cart"]) && $_GET["total"] != 0 && $flag){
+            $parameters["title"] = "E-commerce - Pay";
+            $parameters["nome"] = "pay-home.php";
     }else{
-            $templateParams["titolo"] = "E-commerce - Cart";
-            $templateParams["nome"] = "cart.php";
+            $parameters["title"] = "E-commerce - Cart";
+            $parameters["nome"] = "carrello.php";
         }
     
     
     
-    $templateParams["categorie"] = $dbh->getCategories();
+    $parameters["categorie"] = $dbh->getCategories();
     require 'template/base.php';
 
 ?>

@@ -1,7 +1,16 @@
+        <!-- Form di login. Posso sia loggarmi ma posso anche cliccare sul bottone registra per
+    creare un nuovo account. -->
         <form action="#" method="POST">
             <h2>Login</h2>
-            <?php if(isset($templateParams["errorelogin"])): ?>
-            <p><?php echo $templateParams["errorelogin"]; ?></p>
+            <?php
+                if(isset($parameters["msg"])){
+                    echo $parameters["msg"];
+                    unset($parameters["msg"]);
+                }
+            ?>
+            
+            <?php if(isset($parameters["errorelogin"])): ?>
+            <p><?php echo $parameters["errorelogin"]; ?></p>
             <?php endif; ?>
             <ul>
                 <li>
@@ -15,3 +24,6 @@
                 </li>
             </ul>
         </form>
+            <div class="form-group">
+                <a href="register.php" class="btn">Register</a>
+            </div>

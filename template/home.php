@@ -1,11 +1,12 @@
-        <?php if(isset($templateParams["titolo_pagina"])): ?>
-        <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
+        <!-- Stampo la home page con tutti i prodotti -->
+        <?php if(isset($parameters["titolo_pagina"])): ?>
+        <h2><?php echo $parameters["titolo_pagina"]; ?></h2>
         <?php endif;?>
         
         
         <div class="container-fluid">
             <div class="row">
-        <?php foreach($templateParams["prodotti"] as $prodotto): ?>
+        <?php foreach($parameters["prodotti"] as $prodotto): ?>
             <div class="col-md-6">
                 <article>
                     <header>
@@ -31,7 +32,7 @@
                         <label for="quantity">Quantita: </label>
                         <input type='number' class="btn  p-0" name='quantity' max='$maxQnt' value="$productQnt" min="1" max="20"></p>
                     
-                        <a href="prodotto.php?id=<?php echo $prodotto["product_id"]; ?>" class="btn ">Leggi tutto</a>
+                        <div><a href="prodotto.php?id=<?php echo $prodotto["product_id"]; ?>" class="btn ">Leggi tutto</a></div>
                     </form>
                     
 

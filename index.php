@@ -1,13 +1,16 @@
 <?php
 require_once 'bootstrap.php';
 
-//Base Template
-$templateParams["titolo"] = "E-commerce - Home";
-$templateParams["nome"] = "home.php";
-$templateParams["categorie"] = $dbh->getCategories();
+/**
+ * Carico la homepage e requiro base.php.
+ */
 
-//Home Template
-$templateParams["prodotti"] = $dbh->getPosts(5);
+$parameters["title"] = "E-commerce - Home";
+$parameters["nome"] = "home.php";
+$parameters["categorie"] = $dbh->getCategories();
+
+
+$parameters["prodotti"] = $dbh->getPosts(5);
 
 require 'template/base.php';
 ?>

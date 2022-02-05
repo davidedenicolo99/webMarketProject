@@ -110,7 +110,7 @@ function cartElement($productimg, $productname, $productprice, $productid, $prod
                             </div>
                             <div class=\"col-md-6\">
                                 <h5 class=\"pt-2\">$productname</h5>
-                                <small class=\"text-secondary\">Seller: dailytuition</small>
+                                <small class=\"text-secondary\">Seller: Davide Market</small>
                                 <h5 class=\"pt-2\">Total: $$productprice</h5>
                                 <h5 class=\"pt-2\">Single-product: $single</h5>
                                 <button type=\"submit\" class=\"btn btn-warning\">Save for Later</button>
