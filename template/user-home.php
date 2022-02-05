@@ -8,6 +8,10 @@
         ?>
         <form action="processa-utente.php" method="POST" enctype="multipart/form-data">
             <h2>Gestisci Credenziali</h2>
+            <?php 
+                if(isset($parameters["error"])):?>
+                <h3><?php echo $parameters["error"]?></h3>
+            <?php unset($parameters["error"]); endif; ?>
             <ul>
                 <li>
                     <label for="username">Username:</label><input type="text" id="username" name="username" value="<?php echo $prodotto[0]["username"]; ?>" />

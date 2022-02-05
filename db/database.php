@@ -197,7 +197,6 @@ class DatabaseHelper{
         $exist = $exist->fetch_array(MYSQLI_ASSOC);
         
         if(isset($exist) && count($exist) != 0){
-            echo "---------ritorno un problrmA-----------";
             return 1;
         }
         $query = "UPDATE autore SET username = ?, password = ?, nome = ? WHERE username = ? ";
@@ -236,7 +235,7 @@ class DatabaseHelper{
         $statement = $this->db->prepare($query);
         $statement->bind_param('ii',$product_id, $autore);
         $statement->execute();
-        var_dump($statement->error);
+        
         return true;
     }
 

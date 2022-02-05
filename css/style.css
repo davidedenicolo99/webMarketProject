@@ -16,6 +16,9 @@ body > header, body > footer{
     text-align: center;
     padding: 20px 0;
 }
+body > footer{
+    margin-top: 10px;
+}
 
 body > header > h1{
     font-family: 'Courier New', Courier, monospace;
@@ -234,6 +237,7 @@ aside{
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 2px 2px 5px #000;
+    
 }
 
 aside > section{

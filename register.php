@@ -17,9 +17,9 @@ require_once 'bootstrap.php';
         $parameters["title"] = "E-commerce - Login";
         $parameters["nome"] = "login-form.php";
         if($result == 1){
-            $parameters["msg"] = "Registrazione non andata buon fine";
+            $parameters["msg"] = "Registrazione non andata a buon fine";
         } else{
-            $parameters["msg"] = "Registrazione andata buon fine";
+            $parameters["msg"] = "Registrazione andata a buon fine";
         }
         
         

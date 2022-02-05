@@ -9,7 +9,7 @@
      */
     if(isset($_POST["submit"]) && $_POST["submit"]=="Modifica"){
         
-        var_dump($_SESSION["username"]);
+       
         $usernameNew = $_POST["username"];
         $usernameOld = $_SESSION["username"];
         $password = $_POST["password"];
@@ -23,15 +23,22 @@
             $_SESSION["username"] = $_POST["username"];
             $_SESSION["password"] = $_POST["password"];
             $_SESSION["nome"] = $_POST["nome"];
+            $parameters["error"] = "Aggiornamento credenziali effettuato";
         }else{
             if( $_POST["username"] == $_SESSION["username"]){
                 $dbh->updateOtherLoginUser($_SESSION["username"], $_POST["password"], $_POST["nome"]);
                 $_SESSION["password"] = $_POST["password"];
                 $_SESSION["nome"] = $_POST["nome"];
+                $parameters["error"] = "Aggiornamento credenziali effettuato";
+            }
+            else{
+             $parameters["error"] = "Aggiornamento credenziali non effettuato";
             }
         }
-        
-        header("location: index.php");  
+        $parameters["categorie"] = $dbh->getCategories();
+        $parameters["nome"] = "user-home.php";
+        $parameters["login"] = $dbh->checkLogin($_SESSION["username"],$_SESSION["password"]);
+        require 'template/base.php';
     }
 
     if(isset($_POST["change"]) && $_POST["change"]=="Change"){
