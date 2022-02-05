@@ -1,8 +1,7 @@
-        <!-- Remote style sheet -->
         <section>
             <h2>prodotti</h2>
-            <?php if(isset($parameters["formmsg"])):?>
-            <p><?php echo $parameters["formmsg"]; ?></p>
+            <?php if(isset($templateParams["formmsg"])):?>
+            <p><?php echo $templateParams["formmsg"]; ?></p>
             <?php endif; ?>
             <?php if($_SESSION["privilege"] == 1){
                 echo "<a href=\"gestisci-prodotti.php?action=1\" class=\"nav-link btn\">Inserisci prodotto</a> ?>";
@@ -11,7 +10,7 @@
                 <tr>
                     <th>Titolo</th><th>Immagine</th><th>Azione</th>
                 </tr>
-                <?php foreach($parameters["prodotti"] as $prodotto): ?>
+                <?php foreach($templateParams["prodotti"] as $prodotto): ?>
                 <tr>
                     <td><?php echo $prodotto["product_name"]; ?></td>
                     <td><img alt="" src="<?php echo UPLOAD_DIR.$prodotto["product_image"]; ?>" /></td>

@@ -1,10 +1,6 @@
-
         <?php 
-        /**
-         * Form che puo usare solo l'admin per eliminare/modificare i prodotti sul db.
-         */
-            $prodotto = $parameters["prodotto"]; 
-            $azione = getAction($parameters["azione"])
+            $prodotto = $templateParams["prodotto"]; 
+            $azione = getAction($templateParams["azione"])
         ?>
         <form action="./processa-prodotto.php" method="POST" enctype="multipart/form-data">
             <h2>Gestisci Prodotto</h2>
@@ -28,15 +24,15 @@
                     <label for="quantity">Quantita Prodotto:</label><textarea id="quantity" name="quantity"><?php echo $prodotto["quantity"]; ?></textarea>
                 </li>
                 <li>
-                    <?php if($parameters["azione"]!=3): ?>
+                    <?php if($templateParams["azione"]!=3): ?>
                     <label for="product_image">Immagine Prodotto</label><input type="file" name="product_image" id="product_image" />
                     <?php endif; ?>
-                    <?php if($parameters["azione"]!=1): ?>
+                    <?php if($templateParams["azione"]!=1): ?>
                     <img src="<?php echo UPLOAD_DIR.$prodotto["product_image"]; ?>" alt="" />
                     <?php endif; ?>
                 </li>
                 <li>
-                    <?php foreach($parameters["categorie"] as $categoria): ?>
+                    <?php foreach($templateParams["categorie"] as $categoria): ?>
                     <input type="checkbox" id="<?php echo $categoria["idcategoria"]; ?>" name="categoria_<?php echo $categoria["idcategoria"]; ?>" <?php 
                         if(in_array($categoria["idcategoria"], $prodotto["categorie"])){ 
                             echo ' checked="checked" '; 
@@ -50,12 +46,12 @@
                     <a href="login.php">Annulla</a>
                 </li>
             </ul>
-                <?php if($parameters["azione"]!=1): ?>
+                <?php if($templateParams["azione"]!=1): ?>
                 <input type="hidden" name="product_id" value="<?php echo $prodotto["product_id"]; ?>" />
                 <input type="hidden" name="categorie" value="<?php echo implode(",", $prodotto["categorie"]); ?>" />
                 <input type="hidden" name="oldimg" value="<?php echo $prodotto["product_image"]; ?>" />
                 <?php endif;?>
 
-                <input type="hidden" name="action" value="<?php echo $parameters["azione"]; ?>" />
+                <input type="hidden" name="action" value="<?php echo $templateParams["azione"]; ?>" />
             <?php endif;?>
         </form>

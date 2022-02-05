@@ -1,12 +1,11 @@
-        <!-- Stampo la home page con tutti i prodotti -->
-        <?php if(isset($parameters["titolo_pagina"])): ?>
-        <h2><?php echo $parameters["titolo_pagina"]; ?></h2>
+        <?php if(isset($templateParams["titolo_pagina"])): ?>
+        <h2><?php echo $templateParams["titolo_pagina"]; ?></h2>
         <?php endif;?>
         
         
         <div class="container-fluid">
             <div class="row">
-        <?php foreach($parameters["prodotti"] as $prodotto): ?>
+        <?php foreach($templateParams["prodotti"] as $prodotto): ?>
             <div class="col-md-6">
                 <article>
                     <header>

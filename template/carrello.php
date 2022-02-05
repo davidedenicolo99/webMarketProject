@@ -2,27 +2,18 @@
 require_once("./bootstrap.php");
 
 $GLOBAL["price"] = 0;
-$parameters["nome"] = "home.php";
+$templateParams["nome"] = "home.php";
 
 ?>
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
 
-
-<!-- Qui carico dinamicamente gli elementi del carrello che sono contenuti in $_SESSION["cart"]
-tramite un ciclo. All'interno del ciclo eseguo una funzione che stampa tutto html relativo agli elementi
-nel carrello. -->
-
-
+    <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./css/style.css">
 
-    <p class="text-white text-uppercase font-weight-bold" ><?php 
-        if(isset($parameters["msg"])){
-            echo $parameters["msg"];
-            unset($parameters["msg"]);
-            unset($_SESSION["cart"]);
-        }
-        ?></p>
+
     <div class="border rounded mb-5 mt-5 bg-white">
                 <?php
 

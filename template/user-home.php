@@ -1,10 +1,5 @@
 <?php 
-    /**
-     * Questo form gestisce il cambio di credenziali una volta che l'utente è loggato.
-     * Nota: viene mostrato solo da un utente normale, non all'admin.
-     */
-
-            $prodotto = $parameters["login"]; 
+            $prodotto = $templateParams["login"]; 
         ?>
         <form action="processa-utente.php" method="POST" enctype="multipart/form-data">
             <h2>Gestisci Credenziali</h2>

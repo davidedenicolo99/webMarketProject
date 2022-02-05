@@ -5,12 +5,6 @@ if(!isUserLoggedIn() || !isset($_POST["action"])){
     header("location: login.php");
 }
 
-/**
- * Questo gestisce la modifica dei prodotti, in base al numero della richiesta post avro una modifica
- * eliminazione o inserimento (non in questo ordine) di un prodotto.
- * Qua ci posso arrivare solo se sono ADMIN.
- */
-
 if($_POST["action"]==1){
     //Inserisco
     $product_name = htmlspecialchars($_POST["product_name"]);

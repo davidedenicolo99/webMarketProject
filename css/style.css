@@ -304,6 +304,9 @@ nav > div > div  span:first-child {
     margin-right: 10px;
 }
 
+footer{
+    height: 150px;
+}
 @media screen and (min-width:768px){
     nav{
         margin: 0 10%;
