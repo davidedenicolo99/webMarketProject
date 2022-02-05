@@ -7,9 +7,13 @@ require_once 'bootstrap.php';
      * Errore in caso la registrazione sia riuscita.
      */
 
-    if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["name"]) ){
-       
-        $result = $dbh->registerUser($_POST["username"],$_POST["password"],$_POST["name"]);
+    if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["name"]) && isset($_POST["choice"]) ){
+        if($_POST["choice"] == "Si"){
+            $admin = 1;
+       } else{
+            $admin = 0;
+       }
+        $result = $dbh->registerUser($_POST["username"],$_POST["password"],$_POST["name"], $admin);
         $parameters["title"] = "E-commerce - Login";
         $parameters["nome"] = "login-form.php";
         if($result == 1){

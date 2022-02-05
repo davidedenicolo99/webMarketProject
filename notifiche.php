@@ -12,7 +12,7 @@
      */
 
     if(isset($_GET["del"]) && $_GET["del"] == "del" && $_SESSION["privilege"] == 1){
-        $dbh->deleteAllNotifiche();
+        $dbh->deleteAllNotifiche($_SESSION["username"]);
     } else if (isset($_GET["del"]) && $_GET["del"] == "del"){
         $dbh->deleteNotifiche($_SESSION["username"]);
     } else if(isset($_POST['delete'])){
@@ -29,8 +29,9 @@
     if(isset($_SESSION["username"]) && $_SESSION["privilege"] == 1){
         $parameters["title"] = "Notifiche - Admin";
         $parameters["nome"] = "gestione-notifiche.php";
-        $parameters["soldout"] = $dbh->soldOut();
-        $parameters["notifiche"] = $dbh->getNotifiche();
+        $parameters["soldout"] = $dbh->soldOut($_SESSION["username"]);
+        $parameters["notifiche"] = $dbh->getNotifiche($_SESSION["username"]);
+        
         
     }else if (isset($_SESSION["username"]) && $_SESSION["privilege"] != 1){
         $parameters["title"] = "Notifiche - Utente";

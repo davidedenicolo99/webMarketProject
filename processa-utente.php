@@ -9,21 +9,40 @@
      */
     if(isset($_POST["submit"]) && $_POST["submit"]=="Modifica"){
         
+        var_dump($_SESSION["username"]);
         $usernameNew = $_POST["username"];
         $usernameOld = $_SESSION["username"];
         $password = $_POST["password"];
         $nome = $_POST["nome"];
-        
-        
-        $result = $dbh->updateLoginUser($usernameOld, $usernameNew, $password, $nome);
+       
+        /**
+         * aggiorno l'username , pass e nome controllando che questi non esistano gia.
+         */
+        $result = $dbh->updateLoginUser($_SESSION["username"], $_POST["username"], $_POST["password"], $_POST["nome"]);
         if($result != 1){
-            $_SESSION["username"] = $usernameOld;
-            $_SESSION["password"] = $password;
-            $_SESSION["nome"] = $nome;
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["password"] = $_POST["password"];
+            $_SESSION["nome"] = $_POST["nome"];
         }else{
-            $_SESSION["username"] = $usernameNew;
+            if( $_POST["username"] == $_SESSION["username"]){
+                $dbh->updateOtherLoginUser($_SESSION["username"], $_POST["password"], $_POST["nome"]);
+                $_SESSION["password"] = $_POST["password"];
+                $_SESSION["nome"] = $_POST["nome"];
+            }
         }
-    
+        
+        header("location: index.php");  
+    }
+
+    if(isset($_POST["change"]) && $_POST["change"]=="Change"){
+        
+        $parameters["title"] = "E-commerce - Admin";
+        $parameters["nome"] = "user-home.php";
+        
+        $parameters["login"] = $dbh->checkLogin($_SESSION["username"],$_SESSION["password"]);
+        
+        $parameters["categorie"] = $dbh->getCategories();
+        require_once("template/base.php");
     }
 
     /**
@@ -38,7 +57,10 @@
         unset($_SESSION["password"]);
         unset($_SESSION["cart"]);
        
+        header("location: index.php");  
     }
+
     
-    header("location: index.php");  
+    
+   
 ?>

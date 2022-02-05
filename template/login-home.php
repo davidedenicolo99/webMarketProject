@@ -26,6 +26,9 @@
             <form action="./processa-utente.php" method="post">
                 <label for="logout"></label>
                 <input value="Logout" type="submit" name="logout" class="btn-warning my-4">
+                <label for="change"></label>
+                <input value="Change" type="submit" name="change" class="btn my-4">
             </form>
+            
 
         </section>

@@ -117,6 +117,30 @@ class DatabaseHelper{
     }
 
     /**
+     * Ritorno un autore dato l'id del prodotto.
+     */
+    public function getAuthorByPostId($id_product){
+        $query = "SELECT autore FROM prodotti WHERE product_id=? LIMIT 1 ";
+        $statement = $this->db->prepare($query);
+        $statement->bind_param('i',$id_product);
+        $statement->execute();
+        $result = $statement->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        $id_autore = $result[0]["autore"];
+        
+
+        $query = "SELECT username FROM autore WHERE idautore=? ";
+        $statement = $this->db->prepare($query);
+        $statement->bind_param('i',$id_autore);
+        $statement->execute();
+        $result = $statement->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        $name_autore = $result[0]["username"];
+
+        return $name_autore;
+    }
+
+    /**
      * Inserisco un articolo.
      */
     public function insertArticle($product_name, $desccompletaformula, $descformula, $product_image, $autore,$quantity, $price){
@@ -173,6 +197,7 @@ class DatabaseHelper{
         $exist = $exist->fetch_array(MYSQLI_ASSOC);
         
         if(isset($exist) && count($exist) != 0){
+            echo "---------ritorno un problrmA-----------";
             return 1;
         }
         $query = "UPDATE autore SET username = ?, password = ?, nome = ? WHERE username = ? ";
@@ -183,7 +208,23 @@ class DatabaseHelper{
          * Questo per evitare che cambiando username tu non vedi piu la notifica.
          */
         $this->updateNotificheUser($usernameNew, $usernameOld);
-        return $statement->execute();
+        $statement->execute();
+        
+        return 0;
+    }
+    
+    /**
+     * Aggiorno la password e il nome quando l'username non è modificato.
+     * Questo perche non verifico se l'username esiste gia.
+     */
+    public function updateOtherLoginUser($username, $password, $name){
+        
+        $query = "UPDATE autore SET username = ?, password = ?, nome = ? WHERE username = ? ";
+        $statement = $this->db->prepare($query);
+        $statement->bind_param('ssss',$username, $password, $name, $username);
+        $statement->execute();
+    
+        return 0;
     }
 
     
@@ -281,8 +322,9 @@ class DatabaseHelper{
      *
      * @return array
      */
-    public function getNotifiche(){
-        $statement = $this->db->prepare("SELECT * FROM notifiche ");
+    public function getNotifiche($produttore){
+        $statement = $this->db->prepare("SELECT * FROM notifiche WHERE produttore = ? ");
+        $statement->bind_param("s", $produttore);
         $statement->execute();
         $result = $statement->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -312,7 +354,7 @@ class DatabaseHelper{
      * @param [string] $compratore
      * @return void
      */
-    public function creaNotifica($product_id, $quantity, $total ,$text, $compratore){
+    public function creaNotifica($product_id, $quantity, $total ,$text, $compratore, $produttore){
 
         $query = "SELECT MAX(idnotifica) as max_product FROM notifiche ";
         $statement = $this->db->prepare($query);
@@ -325,9 +367,9 @@ class DatabaseHelper{
             $compratore = "anonimo";
         }
 
-        $query = "INSERT INTO notifiche (idnotifica, idProdottoComprato, quantitaComprata,prezzoTotale, userCompratore, messaggio) VALUES (?, ?, ? , ?, ?, ?) ";
+        $query = "INSERT INTO notifiche (idnotifica, idProdottoComprato, quantitaComprata,prezzoTotale, userCompratore, messaggio, produttore) VALUES (?, ?, ? , ?, ?, ?, ?) ";
         $statement = $this->db->prepare($query);
-        $statement->bind_param('iiiiss',$max, $product_id, $quantity, $total, $compratore,$text);
+        $statement->bind_param('iiiisss',$max, $product_id, $quantity, $total, $compratore,$text, $produttore);
             
         
         
@@ -352,14 +394,15 @@ class DatabaseHelper{
 
     /**
      * Inserisce un utente a seguito di una registrazione.
-     * Controlla anche che quell'username non sia gia presente nel db.
+     * Controlla anche che quell'username non sia gia presente nel db. Se admin = 1 allora l'utente è venditore
      *
      * @param [string] $username
      * @param [string] $password
      * @param [string] $name
+     * @param [int] $admin
      * @return void
      */
-    public function registerUser($username, $password, $name){
+    public function registerUser($username, $password, $name, $admin){
 
         $query = "SELECT username FROM autore WHERE username = ? ";
         $statement = $this->db->prepare($query);
@@ -378,7 +421,7 @@ class DatabaseHelper{
         $max = $statement->get_result();
         $max = $max->fetch_array(MYSQLI_ASSOC);
         $max =  $max["max_id"] + 1;
-        $attivo = 0;
+        $attivo = $admin;
         
 
 
@@ -397,9 +440,10 @@ class DatabaseHelper{
      *
      * @return void
      */
-    public function deleteAllNotifiche(){
-        $query = "DELETE FROM notifiche ";
+    public function deleteAllNotifiche($produttore){
+        $query = "DELETE FROM notifiche WHERE produttore = ? ";
         $statement = $this->db->prepare($query);
+        $statement->bind_param("s", $produttore);
         $statement->execute();
     }
 
@@ -434,11 +478,24 @@ class DatabaseHelper{
      * Notifica quando un prodotto è sold out.
      */
 
-    public function soldOut(){
-        $query = "SELECT product_name FROM prodotti WHERE quantity=0 ";
+    public function soldOut($produttore){
+
+        $query = "SELECT idautore FROM autore WHERE username=? ";
         $statement = $this->db->prepare($query);
+        $statement->bind_param("s", $produttore);
         $statement->execute();
         $result = $statement->get_result();
+        $result = $result->fetch_all(MYSQLI_ASSOC);
+        $idautore = $result[0]["idautore"];
+
+
+        $query = "SELECT product_name FROM prodotti WHERE quantity=0 AND autore = ? ";
+        $statement = $this->db->prepare($query);
+        $statement->bind_param("i", $idautore);
+        $statement->execute();
+        $result = $statement->get_result();
+
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 

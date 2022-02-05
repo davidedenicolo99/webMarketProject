@@ -15,6 +15,13 @@
                     <label for="name">Nome:</label><input type="text" id="name" name="name" required />
                 </li>
                 <li>
+                <label for="choice">Utente venditore?</label>
+                    <select name="choice" >
+                        <option value="No">No</option>
+                        <option value="Si">Si</option>
+                    </select>
+                </li>
+                <li>
                     <input type="submit" name="submit" value="Invia" />
                 </li>
             </ul>

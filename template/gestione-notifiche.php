@@ -18,12 +18,6 @@
             foreach ($parameters["notifiche"] as $key => $value):
     ?>
     <section class="my-3">
-            <?php 
-                if(isset($parameters["soldout"])):
-                    foreach ($parameters["soldout"] as $key1 => $value1):?>
-                    <span><span>SoldOut:</span> <?php echo $value1["product_name"]?>$</span>
-                    <br> <br>
-            <?php unset($parameters["soldout"]); endforeach; endif; ?>
 
             <span><span>ID notifica:</span><?php echo $value["idnotifica"]?></span>
             <span><span>ID prodotto:</span> <?php echo $value["idProdottoComprato"]?></span>
@@ -37,7 +31,15 @@
     <?php endforeach; ?>
     <?php endif; ?>
 
-    
+    <section>
+        <?php 
+            if(isset($parameters["soldout"])):
+            foreach ($parameters["soldout"] as $key1 => $value1):?>
+            <span><span>SoldOut:</span> <?php echo $value1["product_name"]?>$</span>
+            <br> <br>
+        <?php unset($parameters["soldout"]); endforeach; endif; ?>
+    </section>
+        
     <footer>
         <a href="./notifiche.php?del=del" class="btn">Cancella Notifiche</span>
     </footer>

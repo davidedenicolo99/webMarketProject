@@ -21,7 +21,9 @@ foreach ($_SESSION['cart'] as $key => $value){
                 $username = "";
             }
             $price = $dbh->getPriceById($value["product_id"]);
-            $dbh->creaNotifica($value["product_id"], $value["quantity"],$price["product_price"]*$value["quantity"] ,"Comprato", $username);
+            $producer = $dbh->getAuthorByPostId($value["product_id"]);
+            
+            $dbh->creaNotifica($value["product_id"], $value["quantity"],$price["product_price"]*$value["quantity"] ,"Comprato", $username, $producer);
 
             unset($_SESSION['cart'][$key]);
             $parameters["title"] = "E-commerce - Home";
