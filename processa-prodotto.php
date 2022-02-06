@@ -96,7 +96,7 @@ if($_POST["action"]==2){
 
 if($_POST["action"]==3){
     //cancello
-    echo "entro";
+    
     $product_id = $_POST["product_id"];
     $autore =  $_SESSION["idautore"];
     $dbh->deleteCategoriesOfArticle($product_id);

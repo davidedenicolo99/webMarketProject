@@ -17,14 +17,14 @@
                     <label for="username">Username:</label><input type="text" id="username" name="username" value="<?php echo $prodotto[0]["username"]; ?>" />
                 </li>
                 <li>
-                    <label for="password">Password:</label><textarea id="password" name="password"><?php echo $prodotto[0]["password"]; ?></textarea>
+                    <label for="password">Password:</label><input type="text" id="password" name="password" value="<?php echo $prodotto[0]["password"]; ?>"></input>
                 </li>
                 <li>
-                    <label for="nome">Nome:</label><textarea id="nome" name="nome"><?php echo $prodotto[0]["nome"]; ?></textarea>
+                    <label for="nome">Nome:</label><input type="text" id="nome" name="nome" value="<?php echo $prodotto[0]["nome"]; ?>"></input>
                 </li>
                 <li>
                     <input type="submit" name="submit" value="Modifica"/>
-                    <a href="index.php">Annulla</a>
+                    <a href="index.php" >Annulla</a>
 
                     <label for="logout"><input type="submit" name="logout" value="Logout"></label>
                 </li>

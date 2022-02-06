@@ -327,6 +327,9 @@ nav > div > div  span:first-child {
     width: 80%;
     text-align: center;
 }
+div{
+    border-radius: 10px;
+}
 @media screen and (min-width:768px){
     nav{
         margin: 0 10%;

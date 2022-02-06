@@ -103,12 +103,12 @@ function cartElement($productimg, $productname, $productprice, $productid, $prod
     $element = "
     
     <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
-                    <div class=\"border rounded\">
-                        <div class=\"row bg-white my-1\">
-                            <div class=\"col-md-3 pl-0\">
-                                <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
+                    <div class=\"\">
+                        <div class=\"row bg-white  my-1\">
+                            <div class=\"col-md-5 pl-0\">
+                                <img src=$productimg alt=\"Image1\" class=\"img-fluid my-1\">
                             </div>
-                            <div class=\"col-md-6\">
+                            <div class=\"col-md-4\">
                                 <h5 class=\"pt-2\">$productname</h5>
                                 <small class=\"text-secondary\">Seller: Davide Market</small>
                                 <h5 class=\"pt-2\">Total: $$productprice</h5>
@@ -118,11 +118,11 @@ function cartElement($productimg, $productname, $productprice, $productid, $prod
                             </div>
                             <div class=\"col-md-3 py-5\">
                                 <div>
-                                    <button name=\"dec\" type=\"submit\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
+                                    <button name=\"dec\" type=\"submit\" class=\"btn bg-light  rounded-circle\"><i class=\"fas fa-minus\"></i></button>
                                     
                                     <input type=\"text\" value=\"$productQnt\" class=\"form-control w-26 d-inline\">
                                     
-                                    <button type=\"submit\" class=\"btn bg-light border rounded-circle\" name=\"sum\"><i class=\"fas fa-plus\"></i></button>
+                                    <button type=\"submit\" class=\"btn bg-light  rounded-circle\" name=\"sum\"><i class=\"fas fa-plus\"></i></button>
                                 </div>
                             </div>
                         </div>

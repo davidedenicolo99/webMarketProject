@@ -23,7 +23,7 @@ nel carrello. -->
             unset($_SESSION["cart"]);
         }
         ?></p>
-    <div class="border rounded mb-5 mt-5 bg-white">
+    <div class=" rounded my-5">
                 <?php
 
                 $total = 0;
@@ -55,7 +55,7 @@ nel carrello. -->
         </div>
         
         
-        <div class="col-md-4 offset-md-7 border rounded mb-5 mt-5 bg-white">
+        <div class="col-md-4 offset-md-7  rounded mb-5 mt-5 bg-white">
 
             <div class="pt-4">
                 <h6>PRICE DETAILS</h6>

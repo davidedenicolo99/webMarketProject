@@ -316,7 +316,7 @@ class DatabaseHelper{
         SET quantity=quantity-?
         WHERE product_id=? ");
         if(!$statement){
-            echo "err";
+            //echo "err";
         }
         $statement->bind_param("ii", $qnt, $id);
         $statement->execute();
