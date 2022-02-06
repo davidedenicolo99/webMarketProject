@@ -27,7 +27,7 @@
         }else{
             if( $_POST["username"] == $_SESSION["username"]){
                 $dbh->updateOtherLoginUser($_SESSION["username"], $_POST["password"], $_POST["nome"]);
-                $_SESSION["password"] = $_POST["password"];
+                $_SESSION["passwordW"] = $_POST["password"];
                 $_SESSION["nome"] = $_POST["nome"];
                 $parameters["error"] = "Aggiornamento credenziali effettuato";
             }

@@ -9,7 +9,7 @@ if(!isUserLoggedIn() || !isset($_GET["action"]) || ($_GET["action"]!=1 && $_GET[
 
 if($_GET["action"]!=1){
 
-    $risultato = $dbh->getPostByIdAndAuthor($_GET["id"], $_SESSION["idautore"]);
+    $risultato = $dbh->getProductByIdAndAuthor($_GET["id"], $_SESSION["idautore"]);
     if(count($risultato)==0){
         $parameters["prodotto"] = null;
     }

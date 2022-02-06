@@ -30,21 +30,7 @@
     </section>
     <?php endforeach; ?>
     <?php endif; ?>
-    <?php 
-        if(isset($parameters["notifiche2"])):
-            foreach ($parameters["notifiche2"] as $key => $value):
-    ?>
-    <section class="my-3 px-0">
-        <span><span>ID notifica:</span><?php echo $value["idnotifica"]?></span>
-        <span><span>ID prodotto:</span> <?php echo $value["idProdottoComprato"]?></span>
-        <span><span>Compratore:</span> <?php echo $value["userCompratore"]?></span>
-        <span><span>Quantita</span> <?php echo $value["quantitaComprata"]?></span>
-        <span><span>Totale:</span> <?php echo $value["prezzoTotale"]?>$</span>
-        <a href="./notifiche.php" class="btn p-2 delete" id="<?php echo $value["idnotifica"]?>">X</a>
-        <br>   
-    </section>
-    <?php endforeach; ?>
-    <?php endif; ?>
+    
 
     <section>
         <?php 

@@ -27,7 +27,7 @@ if(isUserLoggedIn()){
     if($_SESSION["privilege"] == 1){
         $parameters["title"] = "E-commerce - Admin";
         $parameters["nome"] = "login-home.php";
-        $parameters["prodotti"] = $dbh->getPostByAuthorId($_SESSION["idautore"]);
+        $parameters["prodotti"] = $dbh->getProductByAuthorId($_SESSION["idautore"]);
         if(isset($_GET["formmsg"])){
             $parameters["formmsg"] = $_GET["formmsg"];
         }

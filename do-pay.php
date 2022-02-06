@@ -21,7 +21,7 @@ foreach ($_SESSION['cart'] as $key => $value){
                 $username = "";
             }
             $price = $dbh->getPriceById($value["product_id"]);
-            $producer = $dbh->getAuthorByPostId($value["product_id"]);
+            $producer = $dbh->getAuthorByProductId($value["product_id"]);
             
             $dbh->creaNotifica($value["product_id"], $value["quantity"],$price["product_price"]*$value["quantity"] ,"Comprato", $username, $producer);
 
@@ -40,7 +40,7 @@ foreach ($_SESSION['cart'] as $key => $value){
     $parameters["categorie"] = $dbh->getCategories();
 
     //Home Template
-    $parameters["prodotti"] = $dbh->getPosts(5);
+    $parameters["prodotti"] = $dbh->getProducts(5);
 
     require 'template/base.php';
 

@@ -47,9 +47,9 @@ class DatabaseHelper{
     }
 
     /**
-     * Ritorno n post.
+     * Ritorno n prodotti.
      */
-    public function getPosts($n=-1){
+    public function getProducts($n=-1){
         $query = "SELECT product_id, product_name, product_image, descformula, product_price, nome FROM prodotti, autore WHERE autore=idautore ORDER BY product_id DESC";
         if($n > 0){
             $query .= " LIMIT ?";
@@ -65,9 +65,9 @@ class DatabaseHelper{
     }
 
     /**
-     * Ritorno un determinato post dato un id.
+     * Ritorno un determinato prodotto dato un id.
      */
-    public function getPostById($id){
+    public function getProductById($id){
         $query = "SELECT product_id, product_name, product_image, product_price, desccompletaformula, nome FROM prodotti, autore WHERE product_id=? AND autore=idautore";
         $statement = $this->db->prepare($query);
         $statement->bind_param('i',$id);
@@ -78,9 +78,9 @@ class DatabaseHelper{
     }
 
     /**
-     * Ritorna tutti i post data una categoria
+     * Ritorna tutti i prodotti data una categoria
      */
-    public function getPostByCategory($idcategory){
+    public function getProductByCategory($idcategory){
         $query = "SELECT product_id, product_name, product_image, descformula, product_price, nome FROM prodotti, autore, prodotto_ha_categoria WHERE categoria=? AND autore=idautore AND product_id=prodotto";
         $statement = $this->db->prepare($query);
         $statement->bind_param('i',$idcategory);
@@ -91,9 +91,9 @@ class DatabaseHelper{
     }
 
     /**
-     * Ritorno il post dell'autore con quell id.
+     * Ritorno il prodotto dell'autore con quell id.
      */
-    public function getPostByIdAndAuthor($id, $idauthor){
+    public function getProductByIdAndAuthor($id, $idauthor){
         $query = "SELECT product_id, quantity,product_price, descformula, product_name, product_image, desccompletaformula, (SELECT GROUP_CONCAT(categoria) FROM prodotto_ha_categoria WHERE prodotto=product_id GROUP BY prodotto) as categorie FROM prodotti WHERE product_id=? AND autore=?";
         $statement = $this->db->prepare($query);
         $statement->bind_param('ii',$id, $idauthor);
@@ -106,7 +106,7 @@ class DatabaseHelper{
     /**
      * Ritorno tutti i prodotti con quell'autore.
      */
-    public function getPostByAuthorId($id){
+    public function getProductByAuthorId($id){
         $query = "SELECT product_id, product_name, product_image FROM prodotti WHERE autore=?";
         $statement = $this->db->prepare($query);
         $statement->bind_param('i',$id);
@@ -119,7 +119,7 @@ class DatabaseHelper{
     /**
      * Ritorno un autore dato l'id del prodotto.
      */
-    public function getAuthorByPostId($id_product){
+    public function getAuthorByProductId($id_product){
         $query = "SELECT autore FROM prodotti WHERE product_id=? LIMIT 1 ";
         $statement = $this->db->prepare($query);
         $statement->bind_param('i',$id_product);
@@ -329,8 +329,8 @@ class DatabaseHelper{
      * @return array
      */
     public function getNotifiche($produttore){
-        $statement = $this->db->prepare("SELECT * FROM notifiche WHERE produttore = ? ");
-        $statement->bind_param("s", $produttore);
+        $statement = $this->db->prepare("SELECT * FROM notifiche WHERE produttore = ? OR userCompratore = ? ");
+        $statement->bind_param("ss", $produttore, $produttore);
         $statement->execute();
         $result = $statement->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -447,9 +447,9 @@ class DatabaseHelper{
      * @return void
      */
     public function deleteAllNotifiche($produttore){
-        $query = "DELETE FROM notifiche WHERE produttore = ? ";
+        $query = "DELETE FROM notifiche WHERE produttore = ? OR userCompratore = ? ";
         $statement = $this->db->prepare($query);
-        $statement->bind_param("s", $produttore);
+        $statement->bind_param("ss", $produttore,$produttore);
         $statement->execute();
     }
 

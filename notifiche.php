@@ -31,8 +31,6 @@
         $parameters["nome"] = "gestione-notifiche.php";
         $parameters["soldout"] = $dbh->soldOut($_SESSION["username"]);
         $parameters["notifiche"] = $dbh->getNotifiche($_SESSION["username"]);
-
-        $parameters["notifiche2"] = $dbh->getNotificheByUsername($_SESSION["username"]);
         
     }else if (isset($_SESSION["username"]) && $_SESSION["privilege"] != 1){
         $parameters["title"] = "Notifiche - Utente";
