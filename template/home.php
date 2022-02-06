@@ -1,6 +1,6 @@
         <!-- Stampo la home page con tutti i prodotti -->
-        <?php if(isset($parameters["titolo_pagina"])): ?>
-        <h2><?php echo $parameters["titolo_pagina"]; ?></h2>
+        <?php if(isset($parameters["title"])): ?>
+        <h2><?php echo $parameters["title"]; ?></h2>
         <?php endif;?>
         
         

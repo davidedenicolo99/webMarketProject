@@ -37,6 +37,7 @@
         }
         $parameters["categorie"] = $dbh->getCategories();
         $parameters["nome"] = "user-home.php";
+        $parameters["title"] = "E-commerce - Change";
         $parameters["login"] = $dbh->checkLogin($_SESSION["username"],$_SESSION["password"]);
         require 'template/base.php';
     }

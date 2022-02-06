@@ -22,10 +22,10 @@
                     <label for="descformula">Anteprima Prodotto:</label><textarea id="descformula" name="descformula"><?php echo $prodotto["descformula"]; ?></textarea>
                 </li>
                 <li>
-                    <label for="product_price">Costo Prodotto:</label><textarea id="product_price" name="product_price"><?php echo $prodotto["product_price"]; ?></textarea>
+                    <label for="product_price">Costo Prodotto:</label><input type="number" id="product_price" name="product_price" min="0" value="<?php echo $prodotto["product_price"]; ?>"></input>
                 </li>
                 <li>
-                    <label for="quantity">Quantita Prodotto:</label><textarea id="quantity" name="quantity"><?php echo $prodotto["quantity"]; ?></textarea>
+                    <label for="quantity">Quantita Prodotto:</label><input type="number" id="quantity" name="quantity" min="0" value="<?php echo $prodotto["quantity"]; ?>"></input>
                 </li>
                 <li>
                     <?php if($parameters["azione"]!=3): ?>

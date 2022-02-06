@@ -18,11 +18,11 @@ if(isset($_GET["id"])){
 }
 $nomecategoria = $dbh->getCategoryById($idcategoria);
 if(count($nomecategoria)>0){
-    $parameters["titolo_pagina"] = "Categoria: ".$nomecategoria[0]["nomecategoria"];
+    $parameters["title"] = "Categoria: ".$nomecategoria[0]["nomecategoria"];
     $parameters["prodotti"] = $dbh->getPostByCategory($idcategoria);
 }
 else{
-    $parameters["titolo_pagina"] = "Categoria non trovata"; 
+    $parameters["title"] = "Categoria non trovata"; 
     $parameters["prodotti"] = array();   
 }
 

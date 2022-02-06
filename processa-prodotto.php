@@ -33,7 +33,7 @@ if($_POST["action"]==1){
     list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["product_image"]);
     if($result != 0){
         $product_image = $msg;
-        $id = $dbh->insertArticle($desccompletaformula, $desccompletaformula, $descformula, $product_image, $autore, $quantity, $price);
+        $id = $dbh->insertArticle($product_name, $desccompletaformula, $descformula, $product_image, $autore, $quantity, $price);
         if($id!=false){
             foreach($categorie_inserite as $categoria){
                 $ris = $dbh->insertCategoryOfArticle($id, $categoria);

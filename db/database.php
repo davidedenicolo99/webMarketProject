@@ -176,7 +176,14 @@ class DatabaseHelper{
         $statement = $this->db->prepare($query);
         $statement->bind_param('ss',$usernameNew, $usernameOld);
         
-        return $statement->execute();
+        $statement->execute();
+
+        $query = "UPDATE notifiche SET produttore = ? WHERE produttore = ? ";
+        $statement = $this->db->prepare($query);
+        $statement->bind_param('ss',$usernameNew, $usernameOld);
+        
+        $statement->execute();
+
     }
 
     /**
