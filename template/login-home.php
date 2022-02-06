@@ -5,7 +5,7 @@
             <p><?php echo $parameters["formmsg"]; ?></p>
             <?php endif; ?>
             <?php if($_SESSION["privilege"] == 1){
-                echo "<a href=\"gestisci-prodotti.php?action=1\" class=\"nav-link btn\">Inserisci prodotto</a>";
+                echo "<a href=\"gestisci-prodotti.php?action=1\" class=\"nav-link btn btn-info\">Inserisci prodotto</a>";
             } ?>
             <table>
                 <tr>
@@ -25,9 +25,9 @@
 
             <form action="./processa-utente.php" method="post">
                 <label for="logout"></label>
-                <input value="Logout" type="submit" name="logout" class="btn-warning my-4">
+                <input value="Logout" type="submit" name="logout" class="btn btn-danger my-4">
                 <label for="change"></label>
-                <input value="Change" type="submit" name="change" class="btn my-4">
+                <input value="Change" type="submit" name="change" class="btn my-4 btn-primary">
             </form>
             
 

@@ -1,6 +1,7 @@
 body, header, h1, h2, h5, ul{
     margin: 0;
     padding: 0;
+    word-wrap: break-word;
 }
 
 
@@ -11,7 +12,7 @@ body, header, h1, h2, h5, ul{
 }
 
 body > header, body > footer{
-    background-color: rgb(54,54,54);
+    background-color: #007fff;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -37,7 +38,7 @@ nav ul li{
     width: 45%;
     margin: 10px 0 0;
     text-align: center;
-    background-color:rgb(54,54,54);
+    background-color:#007fff;
 }
 nav ul li{
     border-radius: 25px;
@@ -59,7 +60,7 @@ nav ul li a{
 }
 
 nav ul li:hover a, nav ul li a.active{
-    color:rgb(219, 69,83);
+    color:rgb(58, 14, 14);
 }
 
 main{
@@ -145,7 +146,7 @@ article > footer > a:hover{
 
 
 form{
-    padding: 0px 5%;
+    padding: 0px;
 }
 
 
@@ -199,7 +200,9 @@ form input[type="number"]{
     border: 1px solid;
     width: 50px;
 }
-
+form input[type="text"], form input[type="password"]{
+    border-radius: 10px;
+}
 main > section{
     padding: 20px 5%;
 }
@@ -319,7 +322,11 @@ img{
 nav > div > div  span:first-child {
     margin-right: 10px;
 }
-
+.btn-info{
+    margin-left: 10%;
+    width: 80%;
+    text-align: center;
+}
 @media screen and (min-width:768px){
     nav{
         margin: 0 10%;
@@ -347,9 +354,14 @@ nav > div > div  span:first-child {
 
     aside{
         width: 25%;
-        margin: 20px 10% 0 7%;
-
+        margin: 20px 10% 0 35%;
+        
     }
+    form{
+        padding: 0 0 0 9.5%;
+        margin: 0;
+    }
+    
 
     form ul{
         width: 50%;
@@ -359,5 +371,23 @@ nav > div > div  span:first-child {
     table{
         width: 80%;
         margin: 0 10%;    
+    }
+}
+@media screen and (max-width:200px){
+    body > header, body > footer{
+        width: 200px;
+    }
+    nav{
+        width: 180px;
+    }
+    main{
+        width: 180px;
+        margin-left: 5%;
+        margin-right: 10%;
+    }
+    aside{
+        width: 175px;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }

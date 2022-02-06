@@ -10,7 +10,7 @@ $parameters["nome"] = "home.php";
 $parameters["categorie"] = $dbh->getCategories();
 
 
-$parameters["prodotti"] = $dbh->getPosts(5);
+$parameters["prodotti"] = $dbh->getPosts(8);
 
 require 'template/base.php';
 ?>

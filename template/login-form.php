@@ -26,5 +26,5 @@
             </ul>
         </form>
             <div class="form-group">
-                <a href="login.php" class="btn">Register</a>
+                <a href="register.php" class="btn btn-info">Register</a>
             </div>

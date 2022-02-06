@@ -18,11 +18,10 @@ require_once 'bootstrap.php';
         $parameters["nome"] = "login-form.php";
         if($result == 1){
             $parameters["msg"] = "Registrazione non andata a buon fine";
-        } else{
-            $parameters["msg"] = "Registrazione andata a buon fine";
+            $parameters["nome"] = "register-form.php";
+        } else{   
+            header("location: login.php");
         }
-        
-        
     }else{
         $parameters["title"] = "E-commerce - Register";
         $parameters["nome"] = "register-form.php";

@@ -1,6 +1,12 @@
 <!-- Form che permette la registrazione di un utente -->
 <form action="register.php" method="POST">
             <h2>Register</h2>
+            <?php
+                if(isset($parameters["msg"])){
+                    echo $parameters["msg"];
+                    unset($parameters["msg"]);
+                }
+            ?>
             <?php if(isset($parameters["errorelogin"])): ?>
             <p><?php echo $parameters["errorelogin"]; ?></p>
             <?php endif; ?>
@@ -22,7 +28,7 @@
                     </select>
                 </li>
                 <li>
-                    <input type="submit" name="submit" value="Invia" />
+                    <input type="submit" name="submit" value="Invia"/>
                 </li>
             </ul>
 </form>

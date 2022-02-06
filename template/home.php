@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row">
         <?php foreach($parameters["prodotti"] as $prodotto): ?>
-            <div class="col-md-6">
+            <div class="col-md-6 col-12">
                 <article>
                     <header>
                         <div>
