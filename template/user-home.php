@@ -7,6 +7,7 @@
             $prodotto = $parameters["login"]; 
         ?>
         <form action="processa-utente.php" method="POST" enctype="multipart/form-data">
+        <fieldset>
             <h2>Gestisci Credenziali</h2>
             <?php 
                 if(isset($parameters["error"])):?>
@@ -28,5 +29,6 @@
 
                     <label for="logout"><input type="submit" name="logout" value="Logout"></label>
                 </li>
-            </ul>        
+            </ul> 
+            </fieldset>       
         </form>

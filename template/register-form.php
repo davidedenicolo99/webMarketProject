@@ -1,5 +1,6 @@
 <!-- Form che permette la registrazione di un utente -->
 <form action="register.php" method="POST">
+<fieldset>
             <h2>Register</h2>
             <?php
                 if(isset($parameters["msg"])){
@@ -31,5 +32,6 @@
                     <input type="submit" name="submit" value="Invia"/>
                 </li>
             </ul>
+</fieldset>
 </form>
            

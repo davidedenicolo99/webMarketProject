@@ -1,6 +1,7 @@
         <!-- Form di login. Posso sia loggarmi ma posso anche cliccare sul bottone registra per
     creare un nuovo account. -->
         <form action="#" method="POST">
+        <fieldset>
             <h2>Login</h2>
             <?php
                 if(isset($parameters["msg"])){
@@ -24,6 +25,7 @@
                 </li>
                 
             </ul>
+            </fieldset>
         </form>
             <div class="form-group">
                 <a href="register.php" class="btn btn-info">Register</a>

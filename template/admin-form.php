@@ -7,6 +7,7 @@
             $azione = getAction($parameters["azione"])
         ?>
         <form action="./processa-prodotto.php" method="POST" enctype="multipart/form-data">
+            <fieldset>
             <h2>Gestisci Prodotto</h2>
             <?php if($prodotto==null): ?>
             <p>Prodotto non trovato</p>
@@ -32,7 +33,7 @@
                     <label for="product_image">Immagine Prodotto</label><input type="file" name="product_image" id="product_image" />
                     <?php endif; ?>
                     <?php if($parameters["azione"]!=1): ?>
-                    <img src="<?php echo UPLOAD_DIR.$prodotto["product_image"]; ?>" alt="" />
+                    <img src="<?php echo UPLOAD_DIR.$prodotto["product_image"]; ?>" alt="<?php echo UPLOAD_DIR.$prodotto["product_name"]; ?>" />
                     <?php endif; ?>
                 </li>
                 <li>
@@ -58,4 +59,5 @@
 
                 <input type="hidden" name="action" value="<?php echo $parameters["azione"]; ?>" />
             <?php endif;?>
+            </fieldset>
         </form>

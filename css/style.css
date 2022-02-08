@@ -376,21 +376,18 @@ div{
         margin: 0 10%;    
     }
 }
-@media screen and (max-width:200px){
-    body > header, body > footer{
-        width: 200px;
+@media only screen and (max-width:120px){
+    
+    *{
+        font-size: 10px;
+        
     }
-    nav{
-        width: 180px;
+    form{
+        width:85%;
     }
-    main{
-        width: 180px;
-        margin-left: 5%;
-        margin-right: 10%;
+    button{
+        width: 120%;
     }
-    aside{
-        width: 175px;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+    
+    
 }

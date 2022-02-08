@@ -31,6 +31,7 @@
                             </div>
                             <div class="col-lg-7">
                                 <form action="" class="form">
+                                <fieldset>
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form__div"> <input type="text" class="form-control" placeholder=" "> <label for="" class="form__label">Card Number</label> </div>
@@ -48,6 +49,7 @@
                                             <div class="btn btn-primary w-100">Sumbit</div>
                                         </div>
                                     </div>
+                                    </fieldset>
                                 </form>
                             </div>
                         </div>
